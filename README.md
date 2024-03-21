@@ -33,7 +33,7 @@
 ```
 
 - **Backend:**
-  ```
+```
   cd ./dexBack
   node index.js
-  ```
+```
