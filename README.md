@@ -10,7 +10,7 @@
   ```
     npm install
   ```
-  - npm install web3 on dex
+  - npm install web3 on ./dex
   ```
      npm install web3
   ```
