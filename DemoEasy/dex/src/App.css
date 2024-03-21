@@ -1,0 +1,326 @@
+.App {
+  text-align: center;
+}
+
+header {
+  height: 100px;
+  background-color: #25232f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.logo{
+  width: 40px;
+  height: 40px;
+  padding-right: 20px;
+}
+
+.eth{
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+
+}
+
+.leftH {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Easyswap{
+  color:rgb(248, 231, 80);
+  text-align: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+.rightH {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.headerItem {
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.headerItem:hover {
+  background-color: rgb(34, 42, 58);
+  cursor: pointer;
+}
+
+.connectButton {
+  background-color: #12dede; 
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 100px;
+  color: #000000;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.connectButton:hover {
+  cursor: pointer;
+  color: #3b4874
+}
+
+.mainWindow {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.tradeBox {
+  width: 400px;
+  height: 400px;
+  background-color: #25232f;
+  border: 2px solid #3c2a41;
+  min-height: 300px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 100px;
+  
+}
+
+.tradeBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+
+.cog {
+  color: #51586f;
+  transition: 0.3s;
+}
+
+.cog:hover {
+  color: white;
+  rotate: 90deg;
+  cursor: pointer;
+}
+
+.switchButton {
+  background-color: rgb(58, 50, 78);
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 8px;
+  position: absolute;
+  top: 86px;
+  left: 180px;
+  color: #12dede;
+  border: 2px solid #25232f;
+  font-size: 12px;
+  transition: 0.3s
+}
+
+.dollarAmount {
+  position: absolute;
+  top: 75px;
+  left: 14px;
+  font-size: 10px;
+  color: #5F6783;
+}
+
+.switchButton:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.inputs {
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.assetOne {
+  position: absolute;
+  min-width: 50px;
+  height: 30px;
+  background-color: #3a4157;
+  top: 36px;
+  right: 20px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  font-size: 17px;
+  padding-right: 8px;
+}
+
+.assetTwo {
+  position: absolute;
+  min-width: 50px;
+  height: 30px;
+  background-color: #3a4157;
+  top: 135px;
+  right: 20px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  font-size: 17px;
+  padding-right: 8px;
+}
+
+.assetOne:hover{
+  cursor: pointer;
+}
+
+.assetTwo:hover{
+  cursor: pointer;
+}
+
+.assetLogo {
+  height: 22px;
+  margin-left: 5px;
+  border-radius: 20px;
+}
+
+.swapButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #243056; 
+  width: calc(100%);
+  height: 55px;
+  font-size: 20px;
+  border-radius: 12px;
+  color: #000000;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-bottom: 30px;
+  margin-top: 8px;
+}
+
+.swapButton[disabled] {
+  background-color: #12dede;
+  opacity: 0.4;
+  color: #000000;
+}
+
+.swapButton[disabled]:hover {
+  cursor: not-allowed;
+  background-color: #00ffff;
+}
+
+.swapButton:hover {
+  cursor: pointer;
+  background-color: #12dede
+}
+
+.tokenLogo {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+.modalContent {
+  border-top: 1px solid #363e54;
+  padding-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.tokenChoice {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tokenChoice:hover {
+  cursor: pointer;
+  background-color: #1f2639;
+}
+
+.tokenName {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tokenTicker {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 300;
+  color: #51596f;
+}
+
+.Markets {
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  margin-left: 100px; /* Add some space to the left */
+}
+
+.MarketContainers {
+  margin-left: 70px;
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin-top: 50px; /* Add margin to separate from the Markets header */
+}
+
+.MarketContainer {
+  background-color: white; /* Set background color to white */
+  color: #000000;
+  width: 250px;
+  height: 300px;
+  border: 1px solid #ccc; /* Add border for visual separation */
+  border-radius: 20px; /* Add border radius for rounded corners */
+  margin-bottom: 100px;
+  margin-left: 30px; /* Add margin bottom for spacing between containers */
+}
+
+.Contact{
+  text-align: left;
+  margin-left: 100px;
+}
+
+.ContactContainer {
+  margin-top: 50px;
+  margin-bottom: 200px;
+  border-radius: 20px;
+  background-color: white; /* Set background color to white */
+  color:#000000;
+  height: 300px;
+  width: 500px;
+}
+
+.About {
+  background-color: #25232f;
+  height: 600px;
+}
