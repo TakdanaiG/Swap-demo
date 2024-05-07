@@ -1,12 +1,15 @@
-import React from "react";
-import Eth from "../eth.svg";
-import Elgato from "../elgato.jpg"
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Eth from '../eth.svg';
+import Elgato from '../elgato.jpg';
 
 function Header(props) {
+  const { address, isConnected, connect } = props;
 
-  const {address, isConnected, connect} = props;
-
+  const[name, setShowName] = useState('')
+  const username = localStorage.getItem('username');
+  
   return (
     <header>
       <div className="leftH">
@@ -17,18 +20,22 @@ function Header(props) {
         <Link to="/tokens" className="link">
           <div className="headerItem">Tokens</div>
         </Link>
+        <Link to="/review" className="link">
+          <div className="headerItem">Review</div>
+        </Link>
       </div>
-      <h1 className = 'Easyswap'>Easy Swap !</h1>
+      <h1 className="Easyswap">Easy Swap !</h1>
       <div className="rightH">
         <div className="headerItem">
-          <img src={Eth} alt="eth" className="eth" />
-          Ethereum
+          <div>Welcome {username}</div>
         </div>
-        <div className="connectButton" onClick={connect}>
-          {isConnected ? (address.slice(0,4) +"..." +address.slice(38)) : "Connect"}
-        </div>
+        <Link to="/" className="link">
+          <div className="headerItem">Login</div>
+        </Link>
+        <Link to="/register" className="link">
+          <div className="headerItem">Register</div>
+        </Link>
       </div>
-      
     </header>
   );
 }

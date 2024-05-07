@@ -107,6 +107,25 @@ function Swap(props) {
       console.log('Buy Token:', buyToken);
       console.log('Sell Token:', sellToken);
       console.log('Sell Amount:', tokenOneAmount);
+      console.log('Buy Amount:', tokenTwoAmount);
+      axios.post('http://localhost:3001/swap', { 
+        buyToken,
+        sellToken,
+        tokenOneAmount,
+        tokenTwoAmount
+    })
+    .then(response => {
+        console.log(response.data); // Log the response data
+        // If you want to navigate after successful response, use the navigation logic here
+        // navigate('/login');
+    })
+    .catch(error => {
+        // Log the error for debugging purposes
+        console.error('Error:', error);
+        // Handle the error or display a message to the user
+    });
+    
+
       
       const web3 = new Web3(window.ethereum);
       // Convert tokenOneAmount to Wei
@@ -114,7 +133,7 @@ function Swap(props) {
   
       // Construct request to 0x API swap endpoint
       const apiUrl = 'https://api.0x.org/swap/v1/quote';
-      const apiKey = ''; // Replace API key
+      const apiKey = '6308c10f-a9e0-444a-859d-9d2fdb48e513'; // Replace API key
       
       const url = `${apiUrl}?buyToken=${buyToken}&sellToken=${sellToken}&sellAmount=${sellAmount}&slippagePercentage=${slippagePercentage}`;
       const headers = {
@@ -318,7 +337,7 @@ function Swap(props) {
           </div>
         </div>
 
-        <div className="swapButton" disabled={!tokenOneAmount || !isConnected} onClick={handleSwap}>Swap</div>
+        <div className="swapButton" disabled={!tokenOneAmount} onClick={handleSwap}>Swap</div>
       </div>
       
     </>
