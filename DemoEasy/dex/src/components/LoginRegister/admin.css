@@ -22,3 +22,7 @@
 .custom-table tr:hover {
     background-color: #dddddd;
 }
+
+.custom-table{
+    background-color: #ffffff; /* Replace with your desired color */
+}

@@ -12,7 +12,7 @@ function Tokens() {
   const WBTC = tokenList[6];
   const MATIC = tokenList[7];
   const UNI = tokenList[8];
-  const MKR = tokenList [10];
+  const MKR = tokenList[10];
   const SHIB = tokenList[11];
   const AAVE = tokenList[12];
   const [ethPrice, setEthPrice] = useState(null);
@@ -27,12 +27,12 @@ function Tokens() {
   const [shibPrice, setShibPrice] = useState(null);
   const [aavePrice, setAavePrice] = useState(null);
   const [mkrPrice, setMkrPrice] = useState(null);
-  
+
   const [cartItems, setCartItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState([]);
   const usernamelocal = localStorage.getItem('username');
-  
-  
+
+
   const addToCart = (item) => {
     // Check if the item already exists in the cart
     const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.name === item.name);
@@ -58,20 +58,22 @@ function Tokens() {
   const handlecheckout = () => {
     console.log(cartItemsToString);
     console.log(usernamelocal);
-    axios.post('http://localhost:3001/tokens', { 
-    cartItemsToString,
-    usernamelocal
+    axios.post('http://localhost:3001/tokens', {
+      cartItemsToString,
+      usernamelocal
     })
-    .then(response => {
+      .then(response => {
         console.log(response.data); // Log the response data
-        // If you want to navigate after successful response, use the navigation logic here
-        // navigate('/login');
-    })
-    .catch(error => {
+        alert('Success')
+
+      })
+      .catch(error => {
         // Log the error for debugging purposes
         console.error('Error:', error);
         // Handle the error or display a message to the user
-    });
+        alert('Error')
+
+      });
   };
 
   useEffect(() => {
@@ -96,7 +98,7 @@ function Tokens() {
           params: { addressOne: GUSD.address, addressTwo: GUSD.address }
         });
         setGusdPrice(gusdRes.data.tokenOne);
-        
+
         const daiRes = await axios.get("http://localhost:3002/tokenPrice", {
           params: { addressOne: DAI.address, addressTwo: DAI.address }
         });
@@ -116,7 +118,7 @@ function Tokens() {
           params: { addressOne: MATIC.address, addressTwo: MATIC.address }
         });
         setMaticPrice(maticRes.data.tokenOne);
-        
+
         const uniRes = await axios.get("http://localhost:3002/tokenPrice", {
           params: { addressOne: UNI.address, addressTwo: UNI.address }
         });
@@ -131,7 +133,7 @@ function Tokens() {
           params: { addressOne: AAVE.address, addressTwo: AAVE.address }
         });
         setAavePrice(aaveRes.data.tokenOne);
-        
+
         const mkrRes = await axios.get("http://localhost:3002/tokenPrice", {
           params: { addressOne: MKR.address, addressTwo: MKR.address }
         });
@@ -148,50 +150,50 @@ function Tokens() {
   return (
     <div>
       <div className="Markets">
-        <h1>Markets</h1>
+        <h1 style={{ color: 'white' }}>Markets</h1>
       </div>
       <div className="MarketContainers">
-        <div className="MarketContainer">
+        <div className="MarketContainer" >
           <div>{ETH.name}</div>
           <div>{ETH.ticker}</div>
-          <img src={ETH.img} height={200} alt={ETH.name}></img>
+          <img src={ETH.img} height={150} alt={ETH.name}></img>
           <div>{ethPrice}</div>
-          <button onClick={() => addToCart(ETH)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(ETH)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{USDC.name}</div>
           <div>{USDC.ticker}</div>
-          <img src={USDC.img} height={200} alt={USDC.name}></img>
+          <img src={USDC.img} height={150} alt={USDC.name}></img>
           <div>{usdcPrice}</div>
-          <button onClick={() => addToCart(USDC)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(USDC)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{USDT.name}</div>
           <div>{USDT.ticker}</div>
-          <img src={USDT.img} height={200} alt={USDT.name}></img>
+          <img src={USDT.img} height={150} alt={USDT.name}></img>
           <div>{usdtPrice}</div>
-          <button onClick={() => addToCart(USDT)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(USDT)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{GUSD.name}</div>
           <div>{GUSD.ticker}</div>
-          <img src={GUSD.img} height={200} alt={GUSD.name}></img>
+          <img src={GUSD.img} height={150} alt={GUSD.name}></img>
           <div>{gusdPrice}</div>
-          <button onClick={() => addToCart(GUSD)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(GUSD)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{DAI.name}</div>
           <div>{DAI.ticker}</div>
-          <img src={DAI.img} height={200} alt={DAI.name}></img>
+          <img src={DAI.img} height={150} alt={DAI.name}></img>
           <div>{daiPrice}</div>
-          <button onClick={() => addToCart(DAI)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(DAI)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{WETH.name}</div>
           <div>{WETH.ticker}</div>
-          <img src={WETH.img} height={200} alt={WETH.name}></img>
+          <img src={WETH.img} height={150} alt={WETH.name}></img>
           <div>{wethPrice}</div>
-          <button onClick={() => addToCart(WETH)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(WETH)}>Add to cart</button>
         </div>
       </div>
       <div>
@@ -202,65 +204,71 @@ function Tokens() {
         <div className="MarketContainer">
           <div>{WBTC.name}</div>
           <div>{WBTC.ticker}</div>
-          <img src={WBTC.img} height={200} alt={WBTC.name}></img>
+          <img src={WBTC.img} height={150} alt={WBTC.name}></img>
           <div>{wbtcPrice}</div>
-          <button onClick={() => addToCart(WBTC)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(WBTC)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{MATIC.name}</div>
           <div>{MATIC.ticker}</div>
-          <img src={MATIC.img} height={200} alt={MATIC.name}></img>
+          <img src={MATIC.img} height={150} alt={MATIC.name}></img>
           <div>{maticPrice}</div>
-          <button onClick={() => addToCart(MATIC)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(MATIC)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{UNI.name}</div>
           <div>{UNI.ticker}</div>
-          <img src={UNI.img} height={200} alt={UNI.name}></img>
+          <img src={UNI.img} height={150} alt={UNI.name}></img>
           <div>{uniPrice}</div>
-          <button onClick={() => addToCart(UNI)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(UNI)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{SHIB.name}</div>
           <div>{SHIB.ticker}</div>
-          <img src={SHIB.img} height={200} alt={SHIB.name}></img>
+          <img src={SHIB.img} height={150} alt={SHIB.name}></img>
           <div>{shibPrice}</div>
-          <button onClick={() => addToCart(SHIB)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(SHIB)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{AAVE.name}</div>
           <div>{AAVE.ticker}</div>
-          <img src={AAVE.img} height={200} alt={AAVE.name}></img>
+          <img src={AAVE.img} height={150} alt={AAVE.name}></img>
           <div>{aavePrice}</div>
-          <button onClick={() => addToCart(AAVE)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(AAVE)}>Add to cart</button>
         </div>
         <div className="MarketContainer">
           <div>{MKR.name}</div>
           <div>{MKR.ticker}</div>
-          <img src={MKR.img} height={200} alt={MKR.name}></img>
+          <img src={MKR.img} height={150} alt={MKR.name}></img>
           <div>{mkrPrice}</div>
-          <button onClick={() => addToCart(MKR)}>Add to cart</button>
+          <button className="btn btn-primary btn-lg btn-block" onClick={() => addToCart(MKR)}>Add to cart</button>
         </div>
-        
-      </div>
-      <div className="Markets">
-        <h1>Cart</h1>
+
       </div>
       <div className="MarketContainers">
-        <div className="MarketContainer">
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>
-            {item.name} - Quantity: {item.quantity}
-            </li>
-          ))}
-        </ul>
-        <button onClick={clearCart}>Clear Cart</button>
-        <button onClick={handlecheckout}>Check out</button>
+        <div className="col-md-10"> {/* Increase the width of the column */}
+          <div className="MarketContainer col-md-10">
+            <ul className="list-group">
+              {cartItems.map((item, index) => (
+                <li key={index} className="list-group-item">
+                  {item.name} - Quantity: {item.quantity}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="col-md-2"> {/* Adjust the width of the buttons container */}
+          <div className="d-grid gap-2">
+            <button className="btn btn-danger" onClick={clearCart}>Clear Cart</button>
+            <button className="btn btn-success" onClick={handlecheckout}>Check out</button>
+          </div>
         </div>
       </div>
+
+
+
     </div>
-    
+
   );
 }
 

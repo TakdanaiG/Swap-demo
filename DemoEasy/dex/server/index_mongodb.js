@@ -127,7 +127,7 @@ app.post('/swap', async (req, res) => {
         
         // Insert user info
         await new Promise((resolve, reject) => {
-            const sql3 = "INSERT INTO transaction (token1_address, token2_address, token_amount1, token_amount2, user) VALUES (?, ?, ?, ?, ?)";
+            const sql3 = "INSERT INTO transaction (token1_address, token2_address, token_amount1, token_amount2, users) VALUES (?, ?, ?, ?, ?)";
             db.query(sql3, [buyToken, sellToken, tokenOneAmount, tokenTwoAmount,usernamelocal], (err, result) => {
                 if (err) {
                     console.error('Error registering user:', err);

@@ -139,3 +139,19 @@ form .register-link{
     text-decoration: underline;
 
 }
+
+.input-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon .icon {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+.form-register {
+    height: 100vh;
+}
+.smaller-input {
+    width: 250px; /* Adjust the width as needed */
+}
+

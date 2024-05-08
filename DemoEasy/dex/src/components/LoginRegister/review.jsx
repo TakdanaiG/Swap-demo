@@ -20,9 +20,13 @@ function Review() {
             .then(result => {
                 if (result.data === "ReviewSuccess") {
                     navigate('/swap');
+                    alert('Thanks for review')
+
                 }
                 else if (result.data === "Fail") {
                     navigate('/review');
+                    alert('Try Again')
+
                 } else {
                     console.log("Fail");
                 }
@@ -32,31 +36,33 @@ function Review() {
 
     return (
         <div className="container">
-            <div className='form-register'>
-                <form onSubmit={handleSubmit}>
-                    <h1>Review us</h1>
+    <div className='form-register'>
+        <form onSubmit={handleSubmit}>
 
-                    <div>
-                        {[1, 2, 3, 4, 5].map((value) => (
-                            <span key={value} onClick={() => handleStarClick(value)}>
-                                <FaStar
-                                    className={value <= rating ? 'star-filled' : 'star-empty'}
-                                />
-                            </span>
-                        ))}
-                    </div>
-
-                    <div>
-                        <input type='text' placeholder='Review' value={review} onChange={(e) => setReview(e.target.value)} />
-                    </div>
-
-                    <button type='submit' className='btn btn-primary'>Submit Review</button>
-
-                </form>
-                <p>Go back home?</p>
-                <Link to='/swap'><button className='btn btn-primary'>Home</button></Link>
+            <h1 style={{ color: 'white' }}>Review us</h1>
+            <br></br>
+            <div className="mb-5">
+                {[1, 2, 3, 4, 5].map((value) => (
+                    <span key={value} onClick={() => handleStarClick(value)} className="mx-1">
+                        <FaStar
+                            className={`star ${value <= rating ? 'star-filled' : 'star-empty'}`}
+                        />
+                    </span>
+                ))}
             </div>
-        </div>
+
+            <div className="mb-3">
+                <input type='text' className="form-control" placeholder='Review' value={review} onChange={(e) => setReview(e.target.value)} />
+            </div>
+
+            <button type='submit' className='btn btn-primary mb-3'>Submit Review</button>
+
+        </form>
+        <p className="text-white">Go back home?</p>
+        <Link to='/swap'><button className='btn btn-primary'>Home</button></Link>
+    </div>
+</div>
+
     );
 }
 

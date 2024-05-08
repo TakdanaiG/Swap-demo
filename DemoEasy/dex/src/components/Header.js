@@ -27,7 +27,7 @@ function Header(props) {
       <h1 className="Easyswap">Easy Swap !</h1>
       <div className="rightH">
         <div className="headerItem">
-          <div>Welcome {username}</div>
+          <div style={{ color: 'white' }}>Welcome {username}</div>
         </div>
         <Link to="/" className="link">
           <div className="headerItem">Login</div>

@@ -119,12 +119,14 @@ function Swap(props) {
     })
     .then(response => {
         console.log(response.data); // Log the response data
-        // If you want to navigate after successful response, use the navigation logic here
-        // navigate('/login');
+        alert('Swap Success')
+
     })
     .catch(error => {
         // Log the error for debugging purposes
         console.error('Error:', error);
+        alert(':(')
+
         // Handle the error or display a message to the user
     });
     
@@ -307,7 +309,7 @@ function Swap(props) {
       <div className="tradeBox">
         
         <div className="tradeBoxHeader">
-        <h2>Swap </h2>
+        <h2 style={{ color: 'white' }}>Swap </h2>
           <Popover
             content={settings}
             title="Settings"

@@ -20,7 +20,7 @@ function TransTable() {
 
     return (
         <div className="table-container">
-            <h1>User Transaction</h1>
+            <h1 style={{ color: 'white' }}>User Transaction</h1>
             <table className="custom-table">
                 <thead>
                     <tr>
@@ -45,8 +45,9 @@ function TransTable() {
                     ))}
                 </tbody>
             </table>
+            <br></br>
             <Link to="/admin">
-                <button>Go back Admin page.</button>
+                <button className='btn btn-primary'>Go back Admin page.</button>
             </Link>
         </div>
     );

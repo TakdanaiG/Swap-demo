@@ -20,7 +20,7 @@ function UserTable() {
 
     return (
         <div className="table-container">
-            <h1>User Information</h1>
+            <h1 style={{ color: 'white' }}>User Information</h1>
             <table className="custom-table">
                 <thead>
                     <tr>
@@ -49,8 +49,9 @@ function UserTable() {
                     ))}
                 </tbody>
             </table>
+            <br></br>
             <Link to="/admin">
-                <button>Go back Admin page.</button>
+                <button className='btn btn-primary'>Go back Admin page.</button>
             </Link>
         </div>
     );
